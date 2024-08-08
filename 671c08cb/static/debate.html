@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>English Debate</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <header>
+      <div>
+          <a href="index"><img id="logo" alt="English Debate Team's Logo" src="" alt="Logo"></a>
+      </div>
+      <div class="menu">
+          <nav>
+             <a href="index">Home</a>
+             <a href="#">Past Debates</a>
+             <a href="contact">Contact</a>
+          </nav>
+      </div>
+      <div class="mode-switch" onclick="toggleSiloMode()">🌙</div>
+  </header>
+  
+  <main class="content">
+    <div class="invisible">
+      <h2>Upcoming Debate Matches</h2>
+        <h3>
+          <table><tr>
+              <td id="tbl_comp"><strong></strong></td>
+              <td id="tbl_date" ><strong></strong></td>
+              <td id="tbl_motion"><strong></strong></td>
+              <td id="tbl_stance"><strong> Team</strong></td>
+              <td id="tbl_school">vs <strong></strong></td>
+            </tr></table>
+        </h3>
+    </div> 
+    <h2>Upcoming Debate Practice</h2>
+      <ul>
+        <li>September(Lunch): Annual General Meeting</li>
+        <li>September(Lunch): Ice Breaking Session</li>
+      </ul>
+
+    <h2>Past Debates Matches 2024-2025 Academic Year</h2>
+    <h4>HKSSDC Summary</h4>
+    <table>
+      <tr>
+        <td id="tbl_stat"><strong>Stat</strong></td>
+        <td id="tbl_data"><strong>Data</strong></td>
+      </tr>
+      <tr>
+        <td>Wins/Loss (Win Rate)</td>
+        <td>
+         <!-- /  (%)  -->
+       </td>
+      </tr>
+      <tr>
+        <td>Best Speakers</td>
+        <td><table>
+          <!-- <td></td> -->
+        </table></td>
+      </tr>
+    </table>
+    <br><br><br><br><br>
+    <h4>Details</h4>
+    <table>
+      <tr>
+        <td id="tbl_comp"><strong>Competition</strong></td>
+        <td id="tbl_date" ><strong>Date</strong></td>
+        <td id="tbl_stance"><strong>Stance</strong></td>
+        <td id="tbl_school"><strong>Opposing Team</strong></td>
+        <td id="tbl_motion"><strong>Motion</strong></td>
+        <td id="tbl_result"><strong>Result</strong></td>
+        <td id="tbl_speaker"><strong>Best Speaker</strong></td>
+      </tr>
+
+      <!-- <tr>
+        <td id="tbl_comp">Competition</td>
+        <td id="tbl_date">Date</td>
+        <td id="tbl_stance">Stance</td>
+        <td id="tbl_school">Opposing Team</td>
+        <td id="tbl_motion">Motion</td>
+        <td id="tbl_result">Result</td>
+        <td id="tbl_speaker">Best Speaker</td>
+      </tr> -->
+    
+    </table>
+    <h2>Historic Data</h2>
+    <ul>
+      <li><a href="Year/2324">2023-2024 English Debate Team</a></li>
+    </ul>
+  </main>
+</body>
+
+<footer class="footer">
+    <a class="footer" href="https://www.cfss.edu.hk/" target="_blank">School</a> //
+    <a class="footer" href="https://www.instagram.com/cfss.engdebate/" target="_blank">Instagram</a>
+    <p>&copy; English Debate Team @ CFSS. All rights reserved.</p>
+  </footer>
+<script>
+  function s(){
+    var imageElement = document.getElementById('logo');
+    if (document.body.classList.contains('Silo-mode')) {
+      imageElement.src = '../image/EngDebate_Silo.png';
+    } else {
+    imageElement.src = '../image/EngDebate.png';
+  }};
+
+  // Function to toggle Silo mode
+  function toggleSiloMode() {
+      const currentMode = document.body.classList.contains('Silo-mode') ? 'Silo-mode' : 'light-mode';
+      const newMode = currentMode === 'Silo-mode' ? 'light-mode' : 'Silo-mode';
+      document.body.classList.toggle('Silo-mode');
+      localStorage.setItem('mode', newMode);
+      s()
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+      const savedMode = localStorage.getItem('mode');
+      if (savedMode) {
+          document.body.classList.add(savedMode);
+          s()
+      }
+  });
+</script>
+</html>

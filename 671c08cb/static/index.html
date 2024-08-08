@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>English Debate</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <header>
+      <div>
+          <a href=""><img id="logo" alt="English Debate Team's Logo" src="" alt="Logo"></a>
+      </div>
+      <div class="menu">
+          <nav>
+             <a href="">Home</a>
+             <a href="debate">Past Debates</a>
+             <a href="contact">Contact</a>
+          </nav>
+      </div>
+      <div class="mode-switch" onclick="toggleSiloMode()">🌙</div>
+  </header>
+  
+  <main class="content">
+    <h1>Welcome to the The Chinese Foundation Secondary School's English Debate Team website</h1>
+    
+    <h2>About Us</h2>
+    <p>We aim to provide a platform for students to develop and sharpen their research, critical thinking, and public speaking skills. Whether you're a seasoned debater or new to the art, our team welcomes all who are passionate about the power of the pen and by it's entention spoken words. Enhancing students’ skills in policy construction, articulation, and advocacy. </p>
+    <p><h2>Our Advisors</h2>
+      <ul>
+        <li><h3><a href="mailto:gni@cfss.edu.hk">Mr. Gurr (TIC)</a><h3></li>
+        <li><h3><a href="mailto:vob@cfss.edu.hk">Mr. O'Brien</a></h3></li>
+        <li><h3><a href="mailto:gda@cfss.edu.hk">Mr. Graff</a></h3></li>
+      </ul>
+    </p>
+    <h2>Meet Our Debate Team</h2>
+    <p><table>
+      <tr>
+        <!-- <th style="size: 1;" >Photo</th> -->
+        <th>Name</th>
+        <th>Role</th>
+        <!-- <th>Favourite Quote</th> -->
+        <th>Grade</th>
+      </tr>
+      <tr>
+        <!-- <td><p></p></td> -->
+        <td nowrap="nowrap"><h3><a href="mailto:woodytai.secondary.hk@gmail.com">Woody</a></h3></td>
+        <td><h3>Debate Captain</h3></td>
+        <td><h3>Form 4 </h3></td>
+        <!-- <td class="Quote"></td> -->
+      </tr>
+      
+      <tr>
+        <!-- <td><p></p></td> -->
+        <td nowrap="nowrap"><h3><a href="">Bobo</a></h3></td>
+        <td><h3>Debate Captain</h3></td>
+        <td><h3>Form 5 </h3></td>
+        <!-- <td class="Quote"></td> -->
+      </tr>
+
+      <tr>
+        <!-- <td><p></p></td> -->
+        <td nowrap="nowrap"><h3><a href="">Michael</a></h3></td>
+        <td><h3>Debate Team</h3></td>
+        <td><h3>Form 5 </h3></td>
+        <!-- <td class="Quote"></td> -->
+      </tr>
+
+      <tr>
+        <!-- <td><p></p></td> -->
+        <td nowrap="nowrap"><h3><a href="">Elisa</a></h3></td>
+        <td><h3>Debate Team</h3></td>
+        <td><h3>Form 5 </h3></td>
+        <!-- <td class="Quote"></td> -->
+      </tr>
+
+      <tr>
+        <!-- <td><p></p></td> -->
+        <td nowrap="nowrap"><h3><a href="">Venus</a></h3></td>
+        <td><h3>Debate Team</h3></td>
+        <td><h3>Form  5</h3></td>
+        <!-- <td class="Quote"></td> -->
+      </tr>
+
+      <tr>
+        <!-- <td><p></p></td> -->
+        <td nowrap="nowrap"><h3><a href="">Adrian</a></h3></td>
+        <td><h3>Debate Team</h3></td>
+        <td><h3>Form  4</h3></td>
+        <!-- <td class="Quote"></td> -->
+      </tr>
+
+      <tr>
+        <!-- <td><p></p></td> -->
+        <td nowrap="nowrap"><h3><a href="">Chloe</a></h3></td>
+        <td><h3>Debate Team</h3></td>
+        <td><h3>Form  4</h3></td>
+        <!-- <td class="Quote"></td> -->
+      </tr>
+
+      <tr>
+        <!-- <td><p></p></td> -->
+        <td nowrap="nowrap"><h3><a href="">Sharona</a></h3></td>
+        <td><h3>Debate Team</h3></td>
+        <td><h3>Form  5</h3></td>
+        <!-- <td class="Quote"></td> -->
+      </tr>
+
+
+<!--       <tr>
+        <td><p></p></td>
+        <td nowrap="nowrap"><h3><a href="">Name</a></h3></td>
+        <td><h3>Megan</h3></td>
+        <td><h3>Form  </h3></td>
+        <td class="Quote"></td>
+      </tr> -->
+
+    </table></p>
+
+    <h2>Awards</h2>
+    <h3>2024 – Hong Kong Secondary Schools Debating Competition - Finalist Round: 1st Runner Up <sub>Sharona, Elisa, <strong>Woody </strong></sub><sup>(Best Debator)</sup></h3>
+  </main>
+</body>
+
+<footer class="footer">
+    <a class="footer" href="https://www.cfss.edu.hk/" target="_blank">School</a> //
+    <a class="footer" href="https://www.instagram.com/cfss.engdebate/" target="_blank">Instagram</a>
+    <p>&copy; English Debate Team @ CFSS. All rights reserved.</p>
+  </footer>
+<script>
+  function s(){
+    var imageElement = document.getElementById('logo');
+    if (document.body.classList.contains('Silo-mode')) {
+      imageElement.src = '../image/EngDebate_Silo.png';
+    } else {
+    imageElement.src = '../image/EngDebate.png';
+  }};
+
+  // Function to toggle Silo mode
+  function toggleSiloMode() {
+      const currentMode = document.body.classList.contains('Silo-mode') ? 'Silo-mode' : 'light-mode';
+      const newMode = currentMode === 'Silo-mode' ? 'light-mode' : 'Silo-mode';
+      document.body.classList.toggle('Silo-mode');
+      localStorage.setItem('mode', newMode);
+      s()
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+      const savedMode = localStorage.getItem('mode');
+      if (savedMode) {
+          document.body.classList.add(savedMode);
+          s()
+      }
+  });
+</script>
+</html>
