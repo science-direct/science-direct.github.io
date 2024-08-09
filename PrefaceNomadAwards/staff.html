@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitLife Web Platform</title>
+    <style>
+        :root {
+            --col-main-bright: #000000;
+            --col-asso-bright: #eeeded;
+            --col-off-bright: #FFEBC1;
+            --col-gray-bright: #BDBDBD;
+            --col-special-bright: #acacff;
+            --col-main: var(--col-main-bright);
+            --col-off: var(--col-off-bright);
+            --col-asso: var(--col-asso-bright);
+            --col-gray: var(--col-gray-bright);
+            --col-special: var(--col-special-bright);
+            --col-special-op: var(--col-special-dark);
+            --col-main-op: var(--col-main-dark);
+            --col-off-op: var(--col-off-dark);
+            --col-gray-op: var(--col-gray-dark);
+            --font-sen: "Sen", serif;
+            --font-main: "futura-pt", sans-serif;
+            --font-asso: "sans", serif;
+            --space-header: 4.5%;
+            --space-micro: 10px;
+            --space-small: 3vh;
+            --space-medium: 7%;
+            --space-large: 10%;
+            --space-xlarge: 15vh;
+            --line-height:1.5em ;
+            --line-height-small: 1em;
+            --line-height-large: 2vh;
+            --transition-default: all 0.2s ease-in-out;
+            --transition-cards: all 0.5s ease-in-out;
+            --border-radius: 5px;
+            --cta-h3a: scale(1.2, 1.2);
+        }
+        body {
+            font: var(--font-main);
+            background-color: var(--col-asso);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            padding: 20px 0;
+            align-items: center;
+            justify-content: center;
+            background: var(--col-special);
+            text-align: center;
+        }
+        header button, header a button{
+            padding: 3;
+            height: 5vh;
+            margin: 2vw;
+        }
+        table {
+              width: 100%;
+              border-collapse: collapse;
+            }
+            
+            th, td {
+              padding: 10px;
+              text-align: left;
+              border-bottom: 1px solid #ddd;
+            }
+            
+            th {
+              background-color: #f2f2f2;
+    </style>
+<body>
+    <header style="display:flex; justify-content: center;">
+        <a href="/"><button>Home</button></a>
+        <h1>Welcome to FitLife</h1>
+        <button onclick="logOut()">Log Out</button>
+    </header>
+        <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Address</th>
+                  <th>Usage Frequency(Past Week)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>John Doe</td>
+                  <td>john.doe@example.com</td>
+                  <td>555-1234</td>
+                  <td>123 Main St, Anytown USA</td>
+                  <td>2</td>
+                </tr>
+                <tr>
+                  <td>Jane Smith</td>
+                  <td>jane.smith@example.com</td>
+                  <td>555-5678</td>
+                  <td>456 Oak Rd, Somewhere City</td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <td>Bob Johnson</td>
+                  <td>bob.johnson@example.com</td>
+                  <td>555-9012</td>
+                  <td>789 Pine Blvd, Othertown</td>
+                  <td>5</td>
+                </tr>
+              </tbody>
+            </table>
+</body>
+
+<script type="text/javascript">
+function logOut(){
+    if (localStorage.getItem("isLoggedIn") === "true") {
+        localStorage.setItem("isLoggedIn", "false");
+        alert("Logged Out");
+        console.log("Local storage cleared.");
+        location.reload();
+    }
+    else{
+        localStorage.setItem("signedIn_NotPermitted", "true");
+        location.reload();
+    }
+}
+document.addEventListener("keydown", function (event) {
+    if (event.key === ";") {
+        logOut();
+    }
+});
+
+window.onload = function () {
+    if (localStorage.getItem("isLoggedIn") != "true") {
+        localStorage.setItem("signedIn_PendingLogin", "true");
+        window.location.replace("login");
+    }
+    if (localStorage.getItem("perms") !="Staff" && localStorage.getItem("perms") !="Admin") {
+        localStorage.setItem("signedIn_NotPermitted", "true");
+        window.location.replace("login");
+    }
+};
+</script>

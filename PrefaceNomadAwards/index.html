@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitLife Web Platform</title>
+    <style>
+        :root {
+            --col-main-bright: #000000;
+            --col-asso-bright: #eeeded;
+            --col-off-bright: #FFEBC1;
+            --col-gray-bright: #BDBDBD;
+            --col-special-bright: #acacff;
+            --col-main: var(--col-main-bright);
+            --col-off: var(--col-off-bright);
+            --col-asso: var(--col-asso-bright);
+            --col-gray: var(--col-gray-bright);
+            --col-special: var(--col-special-bright);
+            --col-special-op: var(--col-special-dark);
+            --col-main-op: var(--col-main-dark);
+            --col-off-op: var(--col-off-dark);
+            --col-gray-op: var(--col-gray-dark);
+            --font-sen: "Sen", serif;
+            --font-main: "futura-pt", sans-serif;
+            --font-asso: "sans", serif;
+            --space-header: 4.5%;
+            --space-micro: 10px;
+            --space-small: 3vh;
+            --space-medium: 7%;
+            --space-large: 10%;
+            --space-xlarge: 15vh;
+            --line-height:1.5em ;
+            --line-height-small: 1em;
+            --line-height-large: 2vh;
+            --transition-default: all 0.2s ease-in-out;
+            --transition-cards: all 0.5s ease-in-out;
+            --border-radius: 5px;
+            --cta-h3a: scale(1.2, 1.2);
+        }
+
+
+        body {
+            font: var(--font-main);
+            background-color: var(--col-asso);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: var(--col-special);
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .hero {
+            background: url('promo-video.jpg') center/cover no-repeat;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .features {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .testimonials {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .cta {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .portfolio-review-card {
+          background-color: var(--col-special);
+          color: var(--col-main);
+          padding: 5vw;
+          border-radius: 8px;
+          width: 60vw;
+          min-width: 300px;
+          margin: 0 15vw;
+          text-align: center;
+          position: relative;
+        }
+
+        .portfolio-review-text {
+          min-height: 30vh;
+          font-size: 2.52vh;
+          line-height: 2.6vh;
+          margin-bottom: 2.5vh;
+        }
+
+        .portfolio-header {
+          font-size: 20px;
+          font-weight: bold;
+          margin-bottom: 1rem;
+          line-height: 5vh;
+        }
+
+        .portfolio-reviewer-name {
+          font-size: 2vh;
+          line-height: 2.4vh;
+          color: var(--col-main);
+        }
+
+        .portfolio-prev-next-buttons {
+          justify-content: space-between; 
+        }
+        .portfolio-prev-next-buttons button {
+          font-size: 3vh;
+          background-color: inherit;
+          color: var(--col-main);
+          border: none;
+          cursor: pointer;
+          position: relative;
+        }
+
+        #prevButton {
+          margin-right: 15vw;
+          bottom: 0;
+          left: 0;
+        }
+        #nextButton{
+          margin-left: 15vw;
+          bottom: 0;
+          left: 0;
+        }
+
+        .page-indicators {
+          display: flex;
+          justify-content: center;
+        }
+
+        .page-indicator {
+          width: 10px;
+          height: 10px;
+          background-color: var(--col-gray);
+          border-radius: 50%;
+          margin: 0 5px;
+        }
+
+        .page-indicator.active {
+          background-color: var(--col-off);
+        }
+        .cta button {
+            padding: 10px 20px;
+            background: var(--col-gray);
+            color: var(--col-main);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+    </style>
+</head>
+
+<body style="padding-bottom: 30vh;">
+    <header>
+        <h1>Welcome to FitLife</h1>
+    </header>
+
+    <div class="hero">
+        <h2>Your Path to a Healthier Lifestyle</h2>
+        <p>Watch our promotional video to learn more</p>
+        <video  style="width:40vw; pointer-events: none;" src="images/Video.mp4" autoplay="" loop="" muted="" playsinline=""></video>
+    </div>
+
+    <div class="features">
+        <h2>Key Features</h2>
+        <p>Explore our AI-driven virtual group fitness classes, personalized fitness journeys, and gamified experience. Let our AI nutrition assistant help you maintain a balanced diet! <a href="#Learn-more"><u>Here!</u></a></p>
+    </div>
+
+    <div class="testimonials">
+        <h2>Testimonials</h2>
+        <div class="portfolio-review-card">
+                <div class="portfolio-header" style="color: yellow; font-size: 5vh; "> ★ ★ ★ ★ ★ </div>
+                <br>
+                <div class="portfolio-header"><h1>Don't take our word for it. Take theirs</h1></div>
+                <div class="portfolio-review-text">"lols"</div>
+                <div class="portfolio-reviewer-name">Woody Tai</div>
+                <div class="portfolio-prev-next-buttons">
+                    <button id="prevButton"> ← </button>
+                    <button id="nextButton"> → </button>
+                </div>
+                <div class="page-indicators">
+                    <div class="page-indicator active"></div>
+                    <div class="page-indicator"></div>
+                    <div class="page-indicator"></div>
+                    <div class="page-indicator"></div>
+                </div>
+            </div>
+
+          <script>
+            const reviewCards = [
+              {
+                text: '"I\'ve been using FitLife for the past few months and it\'s been a game-changer for my fitness journey. The virtual group classes are so convenient and the AI feedback really helps me improve my form. The personalized workout plans and nutrition guidance have also been invaluable. Highly recommend giving FitLife a try!"',
+                name: "John Doe | Director, Software Engineeing firm",
+              },
+              {
+                text: '"As someone who struggles with staying motivated, FitLife has been a lifesaver. The gamification features and challenges keep me engaged and pushing myself. The community aspect of the group classes is also really motivating. I\'ve seen such great results in my strength and endurance since using the platform."', 
+                name: "Jane Doe | Marketing Manager"
+              },
+              {
+                text: '"FitLife\'s AI-powered nutrition assistant has been a game-changer for me. I was always uncertain about my diet, but the personalized meal plans and grocery lists have taken the guesswork out. I feel healthier and more energized than ever. The integration with the fitness features is also really seamless."', 
+                name: "John Smith | Accountant"
+              },
+              {
+                text: '"I\'m so impressed with the technology behind FitLife. The real-time feedback and tracking in the virtual classes is incredibly accurate and helpful. It\'s like having a personal trainer in my living room. The user experience is also top-notch - the platform is intuitive and a joy to use. Definitely worth the investment for anyone serious about their health and fitness."', 
+                name: "Jane Smith | High School Teacher"
+              }
+            ];
+
+            let currentIndex = 0;
+            const reviewText = document.querySelector(".portfolio-review-text");
+            const reviewerName = document.querySelector(".portfolio-reviewer-name");
+            const prevButton = document.getElementById("prevButton");
+            const nextButton = document.getElementById("nextButton");
+            const pageIndicators = document.querySelectorAll(".page-indicator");
+
+            function updateReviewCard() {
+              const currentReview = reviewCards[currentIndex];
+              reviewText.textContent = currentReview.text;
+              reviewerName.textContent = currentReview.name;
+              updatePageIndicators();
+            }
+
+            function updatePageIndicators() {
+              pageIndicators.forEach((indicator, index) => {
+                indicator.classList.toggle("active", index === currentIndex);
+              });
+            }
+
+            prevButton.addEventListener("click", () => {
+              currentIndex = (currentIndex - 1 + reviewCards.length) % reviewCards.length;
+              updateReviewCard();
+            });
+
+            nextButton.addEventListener("click", () => {
+              currentIndex = (currentIndex + 1) % reviewCards.length;
+              updateReviewCard();
+            });
+
+            updateReviewCard();
+          </script>
+    </div>
+
+    <div class="cta" id="Learn-more">
+        <h2>Ready to Get Started?</h2>
+        <button class="temp_1"><a class="temp_1" href="login">Sign Up Now</a></button>
+        </div>
+    </div>
+</body>
+
+</html>

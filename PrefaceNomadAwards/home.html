@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitLife Web Platform</title>
+    <style>
+        :root {
+            --col-main-bright: #000000;
+            --col-asso-bright: #eeeded;
+            --col-off-bright: #FFEBC1;
+            --col-gray-bright: #BDBDBD;
+            --col-special-bright: #acacff;
+            --col-main: var(--col-main-bright);
+            --col-off: var(--col-off-bright);
+            --col-asso: var(--col-asso-bright);
+            --col-gray: var(--col-gray-bright);
+            --col-special: var(--col-special-bright);
+            --col-special-op: var(--col-special-dark);
+            --col-main-op: var(--col-main-dark);
+            --col-off-op: var(--col-off-dark);
+            --col-gray-op: var(--col-gray-dark);
+            --font-sen: "Sen", serif;
+            --font-main: "futura-pt", sans-serif;
+            --font-asso: "sans", serif;
+            --space-header: 4.5%;
+            --space-micro: 10px;
+            --space-small: 3vh;
+            --space-medium: 7%;
+            --space-large: 10%;
+            --space-xlarge: 15vh;
+            --line-height:1.5em ;
+            --line-height-small: 1em;
+            --line-height-large: 2vh;
+            --transition-default: all 0.2s ease-in-out;
+            --transition-cards: all 0.5s ease-in-out;
+            --border-radius: 5px;
+            --cta-h3a: scale(1.2, 1.2);
+        }
+        body {
+            font: var(--font-main);
+            background-color: var(--col-asso);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            padding: 20px 0;
+            align-items: center;
+            justify-content: center;
+            background: var(--col-special);
+            text-align: center;
+        }
+        header button, header a button{
+            padding: 3;
+            height: 5vh;
+            margin: 2vw;
+        }
+
+        a{
+            transition: var(--transition-default);
+            color: var(--col-main);
+        }
+        a:hover{
+            transition: var(--transition-default);
+            text-decoration: none;
+            color: var(--col-gray);
+        }
+    </style>
+<body>
+    <header style="display:flex; justify-content: center;">
+        <a href="/"><button>Home</button></a>
+        <h1>Welcome to FitLife</h1>
+        <button onclick="logOut()">Log Out</button>
+    </header>
+    
+    <table style="border: 1px solid black; padding: 1vh 1.2vw;">
+        <tr style="border: 1px solid black; padding: 1vh 1.2vw;">
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;"><strong>Exercise name</strong></td>
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;"><strong>Description</strong></td>
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;"><strong>Difficulty</strong></td>
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;"></td>
+
+        </tr>
+        <tr style="border: 1px solid black; padding: 1vh 1.2vw;">
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;">Head tilting exercise</td>
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;">The head tilting exercise allows us to reduce the soreness of our necks</td>
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;">★</td>
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;"><h3><a href="">find out more here</a></h3>    </td>
+        </tr>
+        <tr style="border: 1px solid black; padding: 1vh 1.2vw;"> 
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;">Shoulder rolls</td>
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;">Shoulder rolls help to release tension and improve mobility in the shoulders</td>
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;">★★</td>
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;"><h3><a href="">find out more here</a></h3></td>
+        </tr>
+        <tr style="border: 1px solid black; padding: 1vh 1.2vw;"> 
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;">Chest opening stretch</td>
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;">This stretch helps to open up the chest and improve posture</td>
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;">★★★</td>
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;"><h3><a href="">find out more here</a></h3></td>
+        </tr>
+        <tr style="border: 1px solid black; padding: 1vh 1.2vw;"> 
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;">Seated twist</td>
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;">Seated twists help to improve spinal mobility and relieve back tension</td>
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;">★★</td>
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;"><h3><a href="">find out more here</a></h3></td>
+        </tr>
+        <tr style="border: 1px solid black; padding: 1vh 1.2vw;"> 
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;">Calf raises</td>
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;">Calf raises strengthen the calf muscles and improve ankle mobility</td>
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;">★★★</td>
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;"><h3><a href="">find out more here</a></h3></td>
+        </tr> 
+        <tr style="border: 1px solid black; padding: 1vh 1.2vw;"> 
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;">Wrist circles</td>
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;">Wrist circles help to improve mobility and circulation in the wrists</td>
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;">★</td>
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;"><h3><a href="">find out more here</a></h3></td>
+        </tr> 
+        <tr style="border: 1px solid black; padding: 1vh 1.2vw;"> 
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;">Ankle rotations</td>
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;">Ankle rotations help to improve mobility and flexibility in the ankles</td>
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;">★★</td>
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;"><h3><a href="">find out more here</a></h3></td>
+        </tr> 
+        <tr style="border: 1px solid black; padding: 1vh 1.2vw;"> 
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;">Thoracic spine extension</td>
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;">This exercise helps to open up the thoracic spine and improve posture</td>
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;">★★★</td>
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;"><h3><a href="">find out more here</a></h3></td>
+        </tr> 
+        <tr style="border: 1px solid black; padding: 1vh 1.2vw;"> 
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;">Knee to chest stretch</td>
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;">The knee to chest stretch helps to release tension in the lower back</td>
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;">★★</td>
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;"><h3><a href="">find out more here</a></h3></td>
+        </tr> 
+        <tr style="border: 1px solid black; padding: 1vh 1.2vw;"> 
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;">Forearm stretch</td>
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;">Forearm stretches help to release tension in the forearms and wrists</td>
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;">★</td>
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;"><h3><a href="">find out more here</a></h3></td>
+        </tr> 
+        <tr style="border: 1px solid black; padding: 1vh 1.2vw;"> 
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;">Quad stretch</td>
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;">The quadriceps stretch helps to improve mobility and flexibility in the front of the thighs</td>
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;">★★★</td>
+            <td style="border: 1px solid black; padding: 1vh 1.2vw;"><h3><a href="">find out more here</a></h3></td>
+        </tr>
+
+
+
+
+    </table>
+
+
+
+<!-- <script type="text/javascript">
+    function logOut(){
+        if (localStorage.getItem("isLoggedIn") === "true") {
+            localStorage.setItem("isLoggedIn", "false");
+            alert("Logged Out");
+            console.log("Local storage cleared.");
+            location.reload();
+        }
+        else{
+            alert("ERROR, please contact ITS");
+        }
+    }
+    document.addEventListener("keydown", function (event) {
+        if (event.key === ";") {
+            logOut()
+        }
+    });
+
+    window.onload = function () {
+        if (localStorage.getItem("isLoggedIn") != "true") {
+            localStorage.setItem("signedIn_PendingLogin", "true");
+            window.location.replace("login");
+        }
+        if (localStorage.getItem("perms") ==="Staff" || localStorage.getItem("perms") === "Admin") {
+            window.location.replace("staff");
+        }
+    };
+</script> -->

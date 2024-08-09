@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitLife Web Platform - Login</title>
+
+    <script type="text/javascript">
+        window.onload = function() {
+            if (localStorage.getItem("isLoggedIn") === "true") {
+                window.location.replace("home");
+            }
+        };
+    </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitLife Login</title>
+    <style>
+        :root {
+            --col-main-bright: #000000;
+            --col-asso-bright: #eeeded;
+            --col-off-bright: #FFEBC1;
+            --col-gray-bright: #BDBDBD;
+            --col-special-bright: #acacff;
+            --col-main: var(--col-main-bright);
+            --col-off: var(--col-off-bright);
+            --col-asso: var(--col-asso-bright);
+            --col-gray: var(--col-gray-bright);
+            --col-special: var(--col-special-bright);
+            --col-special-op: var(--col-special-dark);
+            --col-main-op: var(--col-main-dark);
+            --col-off-op: var(--col-off-dark);
+            --col-gray-op: var(--col-gray-dark);
+            --font-sen: "Sen", serif;
+            --font-main: "futura-pt", sans-serif;
+            --font-asso: "sans", serif;
+            --space-header: 4.5%;
+            --space-micro: 10px;
+            --space-small: 3vh;
+            --space-medium: 7%;
+            --space-large: 10%;
+            --space-xlarge: 15vh;
+            --line-height:1.5em ;
+            --line-height-small: 1em;
+            --line-height-large: 2vh;
+            --transition-default: all 0.2s ease-in-out;
+            --transition-cards: all 0.5s ease-in-out;
+            --border-radius: 5px;
+            --cta-h3a: scale(1.2, 1.2);
+        }
+        header {
+            padding: 20px 0;
+            align-items: center;
+            justify-content: center;
+            background: var(--col-special);
+            text-align: center;
+        }
+        header button, header a button{
+            padding: 3;
+            height: 5vh;
+            margin: 2vw;
+        }
+
+        body {
+            font: var(--font-main);
+            margin: 0;
+            padding: 0;
+            background-color: var(--col-gray);
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="button"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            border-radius: 5px;
+        }
+
+        input[type="button"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <header style="display:flex; justify-content: center;">
+        <a style="opacity: 0;" href="/"><button style="height:100%; margin: 0 0.2vw 0 5vw; text-align:center;">Home</button></a>
+        <h1>Welcome to FitLife</h1>
+        <button style="opacity: 0;">logout</button>
+    </header>
+
+    <div class="container">
+        <h2>Login to FitLife</h2>
+        <form>
+            <label for="email">Username:</label>
+            <input type="text" id="email" name="email" placeholder="Enter your username">
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password">
+
+            <input onclick ="validateLogin()" type="button" value="Login">
+            <input onclick ="logOut()" type="button" value="LogOut">
+        </form>
+            <script>
+                const Users = {
+                    "Guest": "123",
+                    "Preface": "NoExcuses!",
+                    "Nomad": "PNA",
+                    "Admin": "Admin!"
+                        };
+                const Perm = {
+                    "Guest": "User",
+                    "Preface": "Premiem User",
+                    "Nomad": "Staff",
+                    "Admin": "Admin"
+                        };
+
+                        function validateLogin() {
+                            const email = document.getElementById("email").value;
+                            const password = document.getElementById("password").value;
+
+                            if (Users.hasOwnProperty(email) && Users[email] === password) {
+                                console.log("True");
+
+                                localStorage.setItem("isLoggedIn", "true");
+                                localStorage.setItem("perms", Perm[email]);
+                                alert("Login successful! Welcome back "+[email]+" ("+Perm[email]+")")
+
+
+                                window.location.replace("home");
+                            } else {
+                                alert("Invalid username or password. Please try again.");
+                            }
+                        }
+
+                        function logOut(){
+                            if (localStorage.getItem("isLoggedIn") === "true") {
+                                localStorage.setItem("isLoggedIn", "false");
+                                localStorage.setItem("perms", "");
+                                alert("Logged Out");
+                                console.log("Local storage cleared.");
+                            }
+                            else{
+                                localStorage.setItem("isLoggedIn", "false");
+                                localStorage.setItem("perms", "");
+                                alert("You have not signed in yet");
+                            }
+                        }
+
+                        function load(){
+                            localStorage.clear()
+                            localStorage.setItem("isLoggedIn", "false"); 
+                            localStorage.setItem("perms", ""); 
+
+
+                        }
+                        document.addEventListener("keydown", function (event) {
+                            if (event.key === ";") {
+                                load()
+                            }
+                        });
+
+                        window.onload = function () {
+                            if (localStorage.getItem("signedIn_PendingLogin") === "true") {
+                                alert("You have not signed in yet");
+                                load();
+                            };
+                            if (localStorage.getItem("signedIn_NotPermitted") === "true") {
+                                alert("You are not permitted to preform that action");
+                                load();
+                            };
+                            window.setTimeout(() => {
+                              if (localStorage.getItem("isLoggedIn") === "true") {
+                                window.location.replace("home");
+                                }else{load();}
+                            }, 3000);
+                        };
+        </script>
+    </div>
+</body>
+
+</html>
