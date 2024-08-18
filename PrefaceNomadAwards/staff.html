@@ -139,7 +139,7 @@ window.onload = function () {
     }
     if (localStorage.getItem("perms") !="Staff" && localStorage.getItem("perms") !="Admin") {
         localStorage.setItem("signedIn_NotPermitted", "true");
-        window.location.replace("login");
+        window.location.replace("home");
     }
 };
 </script>
