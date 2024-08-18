@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="loadstyle.css">
+  <title>Redirecting...</title>
+</head>
+<body>
+  <div class="spinner"></div>
+  <p>Oh, this is taking longer then expected!</p>
+  <p>Hold on.</p>
+  <p>Please do not leave this webpage</p>
+  <br>
+  <p><a href="https://woodytai.github.io/">Go Back</a></p>
+  
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const savedMode = localStorage.getItem('mode');
+        if (savedMode) {
+            document.body.classList.add(savedMode);
+        }
+    });
+
+    var woodytai_toRedirectPage = localStorage.getItem("woodytai_toRedirectPage");
+    if (!woodytai_toRedirectPage) { 
+        woodytai_toRedirectPage = "https://woodytai.github.io"; 
+    }
+    localStorage.setItem("woodytai_toRedirectPage", "");
+
+    window.location.replace(woodytai_toRedirectPage);
+
+    setTimeout(function() {
+      localStorage.setItem("woodytai_toRedirectPage", woodytai_toRedirectPage);
+      window.location.replace("loadingerror");
+    }, 60000);
+  </script>
+</body>
+</html>

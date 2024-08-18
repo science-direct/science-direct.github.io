@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="loadstyle.css">
+  <title>Redirecting...</title>
+</head>
+<body>
+  <div class="spinner"></div>
+  <p>This shouldn't have taken so long!</p>
+  <p>Failed to load your requested site<span id="woodytai_toRedirectPage"></span></p>
+  <div style="display: flex;">
+    <p><a id="GoBack" href="loading">Try Again?</a></p>
+    <p><a ><button onclick="support()">Contact Support</button></a></p>
+  </div>
+
+  <br>
+  <p><a href="https://www.google.com/">Home</a></p>
+  
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const savedMode = localStorage.getItem('mode');
+        if (savedMode) {
+            document.body.classList.add(savedMode);
+        }
+    });
+
+    var woodytai_toRedirectPage = localStorage.getItem("woodytai_toRedirectPage");
+    if (!woodytai_toRedirectPage) { 
+        woodytai_toRedirectPage = "https://www.google.com"; 
+    }
+    var woodytai_toRedirectPage = woodytai_toRedirectPage;
+    document.getElementById("woodytai_toRedirectPage").textContent = "("+woodytai_toRedirectPage.split("//")[1]+")";
+    
+    localStorage.setItem("woodytai_toRedirectPage", "");
+
+    function support() {
+      alert("Support contacted, apologies for the delay \n (You will be redirected back to home)");
+      window.location.replace("https://www.google.com")
+    }
+
+    setTimeout(function() {
+      localStorage.setItem("woodytai_toRedirectPage", woodytai_toRedirectPage);
+      window.location.replace("https://www.google.com");
+    }, 300000);
+
+
+  </script>
+</body>
+</html>

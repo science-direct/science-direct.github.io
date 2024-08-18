@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="loadstyle.css">
+  <title>Redirecting...</title>
+</head>
+
+<body>
+  <div class="spinner" id="spinner"></div><img width="" src="images/d063a69999b77f6a5e2f83c2e10589bc3a246f26f2889670444501105dd91e569cfd87626c8d6452ee771ba673e2a187/Sad.png">
+  <h3>Redirecting </h3>
+  <p>Please wait while you are being redirected.</p>
+
+  <script>
+    function logout(Reason){
+      document.querySelector('p').textContent = 'Invalid query parameter.';
+      document.querySelector('h3').textContent = 'Unable to redirect.';
+      document.getElementById('spinner').style.visibility = 'hidden';
+      document.querySelector('img').style.display = 'block';
+      console.error("Unable to execute due to error("+Reason+").")
+      localStorage.setItem("woodytai_toRedirectPage", "");
+      setTimeout(function() {
+        window.location.replace("../../");
+      }, 10000);
+    }
+
+    fetch('websites.json')
+      .then(response => response.json())
+      .then(data => {
+        const redirectDict = data;
+        const queryParam = window.location.href.split('?')[1];
+        if (queryParam in redirectDict) {
+          localStorage.setItem("woodytai_toRedirectPage", redirectDict[queryParam]);
+          window.location.replace("loading.html");
+        } else {
+          logout("Data not located")
+        }
+      })
+      .catch(error => {
+        logout("Unable to fetch websites.json: "+error)
+      });
+  </script>
+</body>
+</html>
